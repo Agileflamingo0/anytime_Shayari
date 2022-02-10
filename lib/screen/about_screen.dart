@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Controller/DataController.dart';
-import 'Controller/detail.dart';
+import '../Controller/DataController.dart';
+
+import '../Controller/detail.dart';
 
 
 class Heart extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HeartState extends State<Heart> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("दिल शायरी")),
+      appBar: AppBar(title: const Text("दिल शायरी")),
       backgroundColor: Colors.grey[300],
       body: SingleChildScrollView(
         child: Padding(
@@ -61,7 +62,7 @@ class _HeartState extends State<Heart> {
                                             BoxShadow(
                                               color: Colors.grey[500]!,
                                               offset: Offset(4, 4),
-                                              blurRadius: 15,
+                                              blurRadius: 10,
                                               spreadRadius: 1,
                                             ),
                                           ],
@@ -70,12 +71,12 @@ class _HeartState extends State<Heart> {
                                           BorderRadius.circular(5),
                                         ),
                                         child: Padding(
-                                          padding: const EdgeInsets.all(5.0),
+                                          padding: const EdgeInsets.all(10.0),
                                           child: Column(
                                             crossAxisAlignment:
-                                                CrossAxisAlignment.start,
+                                            CrossAxisAlignment.center,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.start,
+                                            MainAxisAlignment.center,
                                             children: [
                                               Container(
                                                 constraints: const BoxConstraints(
@@ -135,17 +136,47 @@ class _HeartState extends State<Heart> {
           children: <Widget>[
             InkWell(
                 onTap: () {},
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.content_copy),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[500]!,
+                        offset: Offset(4, 4),
+                        blurRadius: 5,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                    borderRadius:
+                    BorderRadius.circular(50),
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.content_copy),
+                  ),
                 )),
             InkWell(
                 onTap: () {
                   //Share.share(_listQuote[position].qoute);
                 },
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.share),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[500]!,
+                        offset: Offset(4, 4),
+                        blurRadius: 5,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                    borderRadius:
+                    BorderRadius.circular(50),
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.share),
+                  ),
                 )),
           ],
         ),

@@ -38,6 +38,11 @@ class _HomeDrawerState extends State<HomeDrawer> {
         icon: Icon(Icons.attach_email),
       ),
       DrawerList(
+        index: DrawerIndex.friend,
+        labelName: 'दोस्ती शायरी',
+        icon: Icon(Icons.attach_email),
+      ),
+      DrawerList(
         index: DrawerIndex.painfull,
         labelName: 'दर्द शायरी',
         icon: Icon(Icons.home),
@@ -224,6 +229,7 @@ enum DrawerIndex {
   atitude,
   painfull,
   beautifull,
+  friend,
   bevfa,
   heart,
   Share,

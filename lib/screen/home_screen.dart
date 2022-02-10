@@ -1,6 +1,7 @@
 import 'package:anytime/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'model/homelist.dart';
+import '../model/homelist.dart';
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -125,10 +126,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               height: AppBar().preferredSize.height - 8,
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 4),
+                padding: EdgeInsets.only(top: 4),
                 child: Text(
                   'AnyTime Shayari',
                   style: TextStyle(

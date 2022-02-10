@@ -48,7 +48,7 @@ class _DrawerUserControllerState extends State<DrawerUserController>
     scrollController =
         ScrollController(initialScrollOffset: widget.drawerWidth);
     scrollController!
-      ..addListener(() {
+      .addListener(() {
         if (scrollController!.offset <= 0) {
           if (scrolloffset != 1.0) {
             setState(() {

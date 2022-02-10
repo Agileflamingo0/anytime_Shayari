@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'Controller/DataController.dart';
+import '../Controller/DataController.dart';
 
 class Beautifull extends StatefulWidget {
   const Beautifull({Key? key}) : super(key: key);
@@ -30,80 +30,83 @@ class _BeautifullState extends State<Beautifull> {
                   init: DataController(),
                   builder: (Value) {
                     return FutureBuilder(
-                        future: Value.getData("सुन्दर_वाक्य"),
-                        builder: (context, AsyncSnapshot snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return Center(
-                              child: CircularProgressIndicator(
-                                backgroundColor: Colors.black,
-                              ),
-                            );
-                          } else {
-                            return ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                itemCount: snapshot.data!.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return GestureDetector(
-                                    onTap: () {},
+                      future: Value.getData("सुन्दर_वाक्य"),
+                      builder: (context, AsyncSnapshot snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return Center(
+                            child: CircularProgressIndicator(
+                              backgroundColor: Colors.black,
+                            ),
+                          );
+                        } else {
+                          return ListView.builder(
+                            scrollDirection: Axis.vertical,
+                            itemCount: snapshot.data!.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return GestureDetector(
+                                onTap: () {},
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey[300],
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.grey[500]!,
+                                          offset: Offset(4, 4),
+                                          blurRadius: 10,
+                                          spreadRadius: 1,
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
                                     child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[300],
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.grey[500]!,
-                                              offset: Offset(4, 4),
-                                              blurRadius: 15,
-                                              spreadRadius: 1,
+                                      padding: const EdgeInsets.all(10.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            constraints:
+                                                BoxConstraints(maxWidth: 200),
+                                            child: Text(
+                                              snapshot.data[index]
+                                                  .data()['title'],
+                                              style: const TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 18,
+                                                  fontWeight: FontWeight.bold),
                                             ),
-                                          ],
-
-                                          borderRadius:
-                                          BorderRadius.circular(5),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(2.0),
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                constraints: BoxConstraints(
-                                                    maxWidth: 200),
-                                                child: Text(
-                                                  snapshot.data[index]
-                                                      .data()['title'],
-                                                  style: const TextStyle(
-                                                      color: Colors.black,
-                                                      fontSize: 18,fontWeight: FontWeight.bold),
-                                                ),
-                                              ),
-                                              Container(
-                                                constraints: BoxConstraints(
-                                                    maxWidth: 200),
-                                                child: Text(
-                                                  snapshot.data[index]
-                                                      .data()['description'],
-                                                  style: TextStyle(
-                                                      color: Color.fromARGB(
-                                                          255, 36, 35, 35),
-                                                      fontSize: 15),
-                                                ),
-                                              ),
-                                              Container(child: bottomMenu(index),)
-                                            ],
                                           ),
-                                        ),
+                                          Container(
+                                            constraints:
+                                                BoxConstraints(maxWidth: 200),
+                                            child: Text(
+                                              snapshot.data[index]
+                                                  .data()['description'],
+                                              style: TextStyle(
+                                                  color: Color.fromARGB(
+                                                      255, 36, 35, 35),
+                                                  fontSize: 15),
+                                            ),
+                                          ),
+                                          Container(
+                                            child: bottomMenu(index),
+                                          )
+                                        ],
                                       ),
                                     ),
-                                  );
-                                });
-                          }
-                        });
+                                  ),
+                                ),
+                              );
+                            },
+                          );
+                        }
+                      },
+                    );
                   },
                 ),
               ),
@@ -113,33 +116,64 @@ class _BeautifullState extends State<Beautifull> {
       ),
     );
   }
+
   Widget bottomMenu(int index) {
     return Container(
       margin: EdgeInsets.all(2),
       width: double.maxFinite,
       child: Container(
           child: Padding(
-            padding: EdgeInsets.only(left: 30, right: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                InkWell(
-                    onTap: () {},
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.content_copy),
-                    )),
-                InkWell(
-                    onTap: () {
-                      //Share.share(_listQuote[position].qoute);
-                    },
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.share),
-                    )),
-              ],
-            ),
-          )),
+        padding: EdgeInsets.only(left: 30, right: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            InkWell(
+                onTap: () {},
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[500]!,
+                        offset: Offset(4, 4),
+                        blurRadius: 5,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                    borderRadius:
+                    BorderRadius.circular(50),
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.content_copy),
+                  ),
+                )),
+            InkWell(
+                onTap: () {
+                  //Share.share(_listQuote[position].qoute);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[500]!,
+                        offset: Offset(4, 4),
+                        blurRadius: 5,
+                        spreadRadius: 2,
+                      ),
+                    ],
+                    borderRadius:
+                    BorderRadius.circular(50),
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.share),
+                  ),
+                )),
+          ],
+        ),
+      )),
     );
   }
 }

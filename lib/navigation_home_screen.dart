@@ -1,13 +1,14 @@
-import 'package:anytime/about_screen.dart';
+import 'package:anytime/screen/about_screen.dart';
 import 'package:anytime/app_theme.dart';
-import 'package:anytime/atitude_screen.dart';
+import 'package:anytime/screen/atitude_screen.dart';
 import 'package:anytime/custom_drawer/drawer_user_controller.dart';
 import 'package:anytime/custom_drawer/home_drawer.dart';
-import 'package:anytime/feedback_screen.dart';
-import 'package:anytime/help_screen.dart';
-import 'package:anytime/home_screen.dart';
-import 'package:anytime/invite_friend_screen.dart';
-import 'package:anytime/painfull.dart';
+import 'package:anytime/screen/feedback_screen.dart';
+import 'package:anytime/screen/friend_screen.dart';
+import 'package:anytime/screen/help_screen.dart';
+import 'package:anytime/screen/home_screen.dart';
+import 'package:anytime/screen/invite_friend_screen.dart';
+import 'package:anytime/screen/painfull.dart';
 import 'package:flutter/material.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
@@ -69,7 +70,12 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
         setState(() {
           screenView = const Beautifull();
         });
-      } else if (drawerIndex == DrawerIndex.Invite) {
+      }
+      else if (drawerIndex == DrawerIndex.friend) {
+        setState(() {
+          screenView = const FriendScreen();
+        });
+      }else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
           screenView = InviteFriend();
         });
