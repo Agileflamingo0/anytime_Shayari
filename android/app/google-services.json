@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "286384569583",
+    "project_id": "anytime-a0a00",
+    "storage_bucket": "anytime-a0a00.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286384569583:android:df837a30dca50d073e2f1a",
+        "android_client_info": {
+          "package_name": "com.msd.anytime"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286384569583-45bjg6ra7m8fi9op1ctltlidn9m7h7i5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfrA0I04yj5quz4eH0oI2dwwmZYpFJbc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286384569583-45bjg6ra7m8fi9op1ctltlidn9m7h7i5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
